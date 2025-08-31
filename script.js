@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, {
-        threshold: 0.1
+        threshold: 0.1 // Trigger when 10% of the section is visible
     });
 
     sections.forEach(section => {
@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', () => {
         const progressBar = document.getElementById('progress-bar');
-        const totalHeight = document.body.scrollHeight - window.innerHeight;
-        const progress = (window.pageYOffset / totalHeight) * 100;
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = (window.scrollY / totalHeight) * 100;
         progressBar.style.width = `${progress}%`;
     });
 });
